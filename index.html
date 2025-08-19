@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <style>
+    /* Background Gradient Animasi */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #ff6ec7, #7873f5, #4ade80, #facc15);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Judul */
+    h1 {
+      font-size: clamp(2rem, 8vw, 5rem); /* Responsif */
+      color: #fff;
+      text-shadow: 0 0 10px #fff,
+                   0 0 20px #ff00de,
+                   0 0 40px #00f0ff;
+      white-space: nowrap;
+      border-right: 3px solid #fff;
+      overflow: hidden;
+      animation: typing 4s steps(12, end), blink 0.7s step-end infinite;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    h1:hover {
+      text-shadow: 0 0 20px #fff,
+                   0 0 40px #ff00de,
+                   0 0 60px #00f0ff,
+                   0 0 80px #ff00de;
+      transform: scale(1.05);
+    }
+
+    /* Animasi */
+    @keyframes typing {
+      from { width: 0; }
+      to   { width: 12ch; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes shake {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(2px, -2px); }
+      50% { transform: translate(-2px, 2px); }
+      75% { transform: translate(2px, 2px); }
+      100% { transform: translate(0, 0); }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="hello">Hello, World!</h1>
+
+  <script>
+    const hello = document.getElementById("hello");
+    const colors = ["#ff00de", "#00f0ff", "#39ff14", "#ffd700", "#ff4500"];
+
+    hello.addEventListener("click", () => {
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      hello.style.textShadow = `0 0 20px #fff, 0 0 40px ${randomColor}, 0 0 60px ${randomColor}`;
+      hello.style.animation = "shake 0.4s ease";
+      setTimeout(() => hello.style.animation = "", 400);
+    });
+  </script>
+</body>
+</html>

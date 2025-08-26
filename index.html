@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
-  <style>
-*, html{
+<html onclick="jump()">
+  <head>
+    <title>game</title>
+    <style>
+      *, html{
   margin: 0px;
   padding: 0px;
 }
 
 body{
-  background: url(nerakaa.gif) ;
+  background: url(game/nerakaa.gif) ;
   
   justify-content: center;
   align-items: center;
@@ -122,14 +120,15 @@ body{
   }
 }
 
-  </style>
-</head>
-<body>
 
+    </style>
+  </head>
+  <body>
+    
     <div class="box"id="box">
   
-     <img src="okk.gif"id="manusia">
-      <img src="iblis.png"id="kaktus">
+     <img src="Game/okk.gif"id="manusia">
+      <img src="Game/iblis.png"id="kaktus">
       <div class="roadContainer"id="roadContainer">
       </div>
     <br>
@@ -138,10 +137,9 @@ body{
     </div>
     <br>
     <br>
-  
-
-  <script>
-    const manusia= document.getElementById("manusia")
+    <br>
+    <!-- <div ><button onclick="jump2()">RUCI</button></div> -->
+    <script>const manusia= document.getElementById("manusia")
 const kaktus= document.getElementById("kaktus")
 const playerScore= document.getElementById("score")
 const playerScore2=document.getElementById("score2")
@@ -196,7 +194,6 @@ function jump2(){
   }
   
 } )
-
-  </script>
-</body>
+</script>
+  </body>
 </html>

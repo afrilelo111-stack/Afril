@@ -141,15 +141,62 @@ body{
   
 
   <script>
-    const hello = document.getElementById("hello");
-    const colors = ["#ff00de", "#00f0ff", "#39ff14", "#ffd700", "#ff4500"];
+    const manusia= document.getElementById("manusia")
+const kaktus= document.getElementById("kaktus")
+const playerScore= document.getElementById("score")
+const playerScore2=document.getElementById("score2")
+const RUCI = document.getElementById("RUCI")
 
-    hello.addEventListener("click", () => {
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      hello.style.textShadow = `0 0 20px #fff, 0 0 40px ${randomColor}, 0 0 60px ${randomColor}`;
-      hello.style.animation = "shake 0.4s ease";
-      setTimeout(() => hello.style.animation = "", 400);
-    });
+let score = 0
+let interval = null
+
+let jumlahScore=() => {
+  score++;
+  playerScore.innerHTML = `Score : ${score} `
+};
+
+let score2 = 0
+
+
+function jump(){
+  if(manusia.classList !="animate"){
+    manusia.classList.add("animate")
+  }
+  setTimeout(function(){
+    manusia.classList.remove("animate")
+  },500)
+  let score=0
+   interval=setInterval(jumlahScore,100)
+   
+}
+function jump2(){
+  if(manusia.classList !="animate2"){
+    manusia.classList.add("animate2")
+  }
+  if(manusia.classList == "animate2"){
+    score2++;
+    playerScore2.innerHTML = `score : ${score2}`
+  }
+  
+}
+
+
+
+  const ifHitKaktus = setInterval(function(){
+  const manusiaTop = parseInt(window.getComputedStyle(manusia).getPropertyValue("top"))
+  const kaktusLeft = parseInt(window.getComputedStyle(kaktus).getPropertyValue("left"))
+  
+  if (kaktusLeft < 60 && kaktusLeft > 0 && manusiaTop >= 60){
+    kaktus.style.animate = "none"
+    kaktus.style.display= "none"
+    if(confirm("Orang kamu nabrak kaktus, ingin ulang?")){
+      window.location.reload()
+    }
+    
+  }
+  
+} )
+
   </script>
 </body>
 </html>
